@@ -1,7 +1,7 @@
 # Robofriends
 
 Tutorial for ZTM course - React\
-View in [Github Pages](https://sheenagonzalez.com/robofriends) or directly on [Github](https://github.com/sheenagonzalez/robofriends)
+View in [Github Pages](https://sheenagonzalez.github.io/robofriends) or directly on [Github](https://github.com/sheenagonzalez/robofriends)
 
 ### Source
 
