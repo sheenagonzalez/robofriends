@@ -1,8 +1,11 @@
 # Robofriends
 
 Tutorial for ZTM course - React\
-https://sheenagonzalez.com/robofriends\
-Source: https://github.com/aneagoie/robofriends
+View in [Github Pages](https://sheenagonzalez.com/robofriends) or directly on [Github](https://github.com/sheenagonzalez/robofriends)
+
+### Source
+
+Original ZTM Source [Github](https://github.com/aneagoie/robofriends)
 
 # Getting Started with Create React App
 
