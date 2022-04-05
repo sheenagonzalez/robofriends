@@ -1,3 +1,8 @@
+# Robofriends
+
+Tutorial for ZTM course - React
+Source: https://github.com/aneagoie/robofriends
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
