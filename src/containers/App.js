@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
@@ -8,22 +8,25 @@ import './App.css';
 
 import { requestRobots, setSearchField } from '../actions'
 
-function App() {
+const App = ({ store }) => {
+  const [searchResults, setSearchResults] = useState([]);
+  const searchField = useSelector(state => state.searchRobots.searchField);
   const robots = useSelector(state => state.requestRobots.robots);
   const isPending = useSelector(state => requestRobots.isPending);
   const error = useSelector(state => requestRobots.error);
-  const searchField = useSelector(state => state.searchRobots.searchField);
   const dispatch = useDispatch();
   const onSearchChange = (event) => dispatch(setSearchField(event.target.value));
-  const onRequestRobots = () => dispatch(requestRobots());
 
   useEffect(() => {
-    onRequestRobots();
-  }, []);
+    dispatch(requestRobots());
+  }, [dispatch]);
 
-  const filteredRobots = robots.filter(robot => {
-    return robot.name.toLowerCase().includes(searchField.toLowerCase());
-  });
+  useEffect(() => {
+    let filteredRobots = robots.filter(robot => {
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
+    })
+    setSearchResults(filteredRobots);
+  }, [searchField, robots]);
 
   return isPending ?
   <h1>Loading</h1> :
@@ -33,7 +36,7 @@ function App() {
       <SearchBox searchChange={onSearchChange} />
         <Scroll>
           <ErrorBoundary>
-            <CardList robots={filteredRobots}/>
+            <CardList robots={searchResults}/>
           </ErrorBoundary>
       </Scroll>
     </div>
